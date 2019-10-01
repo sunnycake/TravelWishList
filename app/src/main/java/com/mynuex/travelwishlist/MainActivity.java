@@ -32,9 +32,9 @@ public class MainActivity extends AppCompatActivity implements WishListClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        // ArrayList to store places
         mPlaces = new ArrayList<>();
-
+        // Use res ID and assign to variables
         mWishListRecyclerView = findViewById(R.id.wish_list);
         mAddButton = findViewById(R.id.add_place_button);
         mNewPlaceNameEditText = findViewById(R.id.new_place_name);
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements WishListClickList
 
         // Configure RecyclerView
         mWishListRecyclerView.setHasFixedSize(true);
-
+        // Layout
         mLayoutManager = new LinearLayoutManager(this);
         mWishListRecyclerView.setLayoutManager(mLayoutManager);
 
@@ -58,9 +58,9 @@ public class MainActivity extends AppCompatActivity implements WishListClickList
                     return;
                 }
 
-                mPlaces.add(new Place(newPlace, reasonWhy));
+                mPlaces.add(new Place(newPlace, reasonWhy)); // Adding place and reason
                 mAdapter.notifyItemInserted(mPlaces.size() -1); // The last element
-                mNewPlaceNameEditText.getText().clear();
+                mNewPlaceNameEditText.getText().clear(); // Clear text after adding
                 mReasonEditText.getText().clear();
             }
         });
@@ -70,13 +70,13 @@ public class MainActivity extends AppCompatActivity implements WishListClickList
     public void onListClick(int position) {
 
         Place place = mPlaces.get(position);
-            Uri locationUri = Uri.parse("geo:0,0?q=" + Uri.encode(place.getName()));
-            Intent mapIntent = new Intent(Intent.ACTION_VIEW, locationUri);
+            Uri locationUri = Uri.parse("geo:0,0?q=" + Uri.encode(place.getName())); // Map
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, locationUri); // Intent to open map
             startActivity(mapIntent);
 
     }
 
-    @Override
+    @Override // Method to remove place on longClick
     public void onListLongClick(int position) {
 
         final int itemPosition = position;
