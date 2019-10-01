@@ -9,8 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.WishListViewHolder> {
@@ -32,6 +30,7 @@ public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.WishLi
         TextView nameTextView;
         TextView dataCreatedTextView;
         WishListClickListener listener;
+        TextView reasonTextView;
 
         WishListViewHolder(LinearLayout layout, WishListClickListener listener) {
             super(layout);
@@ -39,6 +38,8 @@ public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.WishLi
             this.layout = layout;
             nameTextView = layout.findViewById(R.id.placeNameTextView);
             dataCreatedTextView = layout.findViewById(R.id.dataCreatedTextView);
+            reasonTextView = layout.findViewById(R.id.reasonTextView);
+
             layout.setOnClickListener(this);
             layout.setOnLongClickListener(this);
             //textView.setOnLongClickListener(this);
@@ -76,7 +77,8 @@ public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.WishLi
         // In Android terminology, bind the view and it's data
         Place place = data.get(position);
         holder.nameTextView.setText(place.getName());
-        holder.dataCreatedTextView.setText("Created on " + place.getDateCreated());
+        holder.dataCreatedTextView.setText("Added on " + place.getDateCreated());
+        holder.reasonTextView.setText("Reason: " + place.getReason());
 //        String text = data.get(position);
 //        holder.textView.setText(text);
 

@@ -9,13 +9,11 @@
     tools:context=".MainActivity">
 
 
-
-
     <EditText
         android:id="@+id/new_place_name"
-        android:layout_width="294dp"
-        android:layout_height="47dp"
-        android:ems="6"
+        android:layout_width="295dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
         android:hint="@string/new_place_name"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,9 +35,23 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reason_text_field"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/reason_text_field"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="@string/reason_text_view"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/new_place_name" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
